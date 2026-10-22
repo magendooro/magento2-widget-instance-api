@@ -4,6 +4,7 @@
         <sequence>
             <module name="Magento_Widget"/>
             <module name="Magento_Theme"/>
+            <module name="Magento_Catalog"/>
             <module name="Magento_Webapi"/>
         </sequence>
     </module>
