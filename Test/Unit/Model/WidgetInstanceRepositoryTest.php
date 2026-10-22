@@ -35,12 +35,12 @@ class WidgetInstanceRepositoryTest extends TestCase
     /**
      * @var InstanceResource&MockObject
      */
-    private InstanceResource&MockObject $resource;
+    private MockObject $resource;
 
     /**
      * @var WidgetInstanceValidator&MockObject
      */
-    private WidgetInstanceValidator&MockObject $validator;
+    private MockObject $validator;
 
     protected function setUp(): void
     {
@@ -63,20 +63,22 @@ class WidgetInstanceRepositoryTest extends TestCase
                 return $this->resource;
             }
         );
-        $this->resource->expects($this->once())->method('load')->with($this->identicalTo($model), 7)->willReturnCallback(
-            function (Instance $loaded) use ($model): InstanceResource {
-                $loaded->setData('page_groups', [[
-                    'page_group' => 'pages',
-                    'layout_handle' => 'cms_index_index',
-                    'block_reference' => 'content',
-                    'page_for' => 'specific',
-                    'entities' => '1,2',
-                    'page_template' => 'widget/block.phtml',
-                ]]);
-                $this->assertSame($model, $loaded);
-                return $this->resource;
-            }
-        );
+        $reload = function (Instance $loaded) use ($model): InstanceResource {
+            $loaded->setData('page_groups', [[
+                'page_group' => 'pages',
+                'layout_handle' => 'cms_index_index',
+                'block_reference' => 'content',
+                'page_for' => 'specific',
+                'entities' => '1,2',
+                'page_template' => 'widget/block.phtml',
+            ]]);
+            $this->assertSame($model, $loaded);
+            return $this->resource;
+        };
+        $this->resource->expects($this->once())
+            ->method('load')
+            ->with($this->identicalTo($model), 7)
+            ->willReturnCallback($reload);
 
         $result = $this->repository($model)->save($widget);
 

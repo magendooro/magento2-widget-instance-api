@@ -193,8 +193,9 @@ class WidgetInstanceRepository implements WidgetInstanceRepositoryInterface
     }
 
     /**
-     * The flat page rows of the API, in the nested shape the admin form posts and
-     * Instance::beforeSave() expects. page_id 0 means every existing row is replaced.
+     * Convert the flat API page rows to the nested shape Instance::beforeSave() expects.
+     *
+     * This is the shape the admin form posts. page_id 0 means every existing row is replaced.
      *
      * @param PageGroupInterface[] $pageGroups
      * @return array<int, array<string, mixed>>
