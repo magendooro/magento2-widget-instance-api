@@ -1,0 +1,16 @@
+{
+    "name": "magendoo/module-widget-instance-api",
+    "description": "REST API for Magento widget instances: search, read, create and update under /V1/widgetInstance.",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "require": {
+        "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
+        "magento/framework": "*",
+        "magento/module-widget": "*",
+        "magento/module-theme": "*"
+    },
+    "autoload": {
+        "files": ["registration.php"],
+        "psr-4": {"Magendoo\\WidgetInstanceApi\\": ""}
+    }
+}

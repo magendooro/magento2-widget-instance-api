@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magendoo\WidgetInstanceApi\Api\Data\WidgetInstanceInterface" type="Magendoo\WidgetInstanceApi\Model\Data\WidgetInstance"/>
+    <preference for="Magendoo\WidgetInstanceApi\Api\Data\PageGroupInterface" type="Magendoo\WidgetInstanceApi\Model\Data\PageGroup"/>
+    <preference for="Magendoo\WidgetInstanceApi\Api\Data\ThemeInterface" type="Magendoo\WidgetInstanceApi\Model\Data\Theme"/>
+    <preference for="Magendoo\WidgetInstanceApi\Api\Data\WidgetInstanceSearchResultsInterface" type="Magendoo\WidgetInstanceApi\Model\WidgetInstanceSearchResults"/>
+    <preference for="Magendoo\WidgetInstanceApi\Api\WidgetInstanceRepositoryInterface" type="Magendoo\WidgetInstanceApi\Model\WidgetInstanceRepository"/>
+    <preference for="Magendoo\WidgetInstanceApi\Api\ThemeListInterface" type="Magendoo\WidgetInstanceApi\Model\ThemeList"/>
+    <type name="Magendoo\WidgetInstanceApi\Model\WidgetInstanceRepository">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">Magento\Framework\Api\SearchCriteria\CollectionProcessor</argument>
+        </arguments>
+    </type>
+</config>

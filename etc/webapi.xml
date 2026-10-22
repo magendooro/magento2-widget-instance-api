@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/widgetInstance/search" method="GET">
+        <service class="Magendoo\WidgetInstanceApi\Api\WidgetInstanceRepositoryInterface" method="getList"/>
+        <resources><resource ref="Magento_Widget::widget_instance"/></resources>
+    </route>
+    <route url="/V1/widgetInstance/themes" method="GET">
+        <service class="Magendoo\WidgetInstanceApi\Api\ThemeListInterface" method="getThemes"/>
+        <resources><resource ref="Magento_Widget::widget_instance"/></resources>
+    </route>
+    <route url="/V1/widgetInstance/:instanceId" method="GET">
+        <service class="Magendoo\WidgetInstanceApi\Api\WidgetInstanceRepositoryInterface" method="getById"/>
+        <resources><resource ref="Magento_Widget::widget_instance"/></resources>
+    </route>
+    <route url="/V1/widgetInstance" method="POST">
+        <service class="Magendoo\WidgetInstanceApi\Api\WidgetInstanceRepositoryInterface" method="save"/>
+        <resources><resource ref="Magento_Widget::widget_instance"/></resources>
+    </route>
+    <route url="/V1/widgetInstance/:instanceId" method="PUT">
+        <service class="Magendoo\WidgetInstanceApi\Api\WidgetInstanceRepositoryInterface" method="save"/>
+        <resources><resource ref="Magento_Widget::widget_instance"/></resources>
+    </route>
+</routes>
