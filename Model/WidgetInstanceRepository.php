@@ -176,7 +176,7 @@ class WidgetInstanceRepository implements WidgetInstanceRepositoryInterface
     }
 
     /**
-     * The API carries parameters as a free-form object; the model wants an array.
+     * The API carries parameters as a free-form set; the model wants an array.
      *
      * @param mixed $parameters
      * @return array<string, mixed>
