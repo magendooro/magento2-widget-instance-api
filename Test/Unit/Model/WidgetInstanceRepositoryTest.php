@@ -160,7 +160,7 @@ class WidgetInstanceRepositoryTest extends TestCase
 
         $this->assertSame([], $model->getWidgetParameters());
         $this->assertSame([], $result->getPageGroups());
-        $this->assertEquals(new \stdClass(), $result->getWidgetParameters());
+        $this->assertSame([], $result->getWidgetParameters());
     }
 
     public function testSaveConvertsObjectParametersToArrays(): void
@@ -237,6 +237,17 @@ class WidgetInstanceRepositoryTest extends TestCase
         $this->assertSame(5, $result->getInstanceId());
         $this->assertSame(self::WIDGET_TYPE, $result->getInstanceType());
         $this->assertSame([], $result->getPageGroups());
+    }
+
+    public function testGetByIdReturnsEmptyParametersAsAnEmptyArray(): void
+    {
+        $model = $this->instanceModel(5);
+        $model->setData('widget_parameters', null);
+        $this->resource->expects($this->once())->method('load')->with($model, 5);
+
+        $result = $this->repository($model)->getById(5);
+
+        $this->assertSame([], $result->getWidgetParameters());
     }
 
     public function testGetByIdOfUnknownInstanceThrows(): void

@@ -21,7 +21,7 @@ class WidgetInstanceTest extends TestCase
         $this->assertSame('', $widget->getTitle());
         $this->assertSame([], $widget->getStoreIds());
         $this->assertSame(0, $widget->getSortOrder());
-        $this->assertEquals(new \stdClass(), $widget->getWidgetParameters());
+        $this->assertSame([], $widget->getWidgetParameters());
         $this->assertSame([], $widget->getPageGroups());
     }
 
@@ -82,11 +82,15 @@ class WidgetInstanceTest extends TestCase
         $this->assertSame([0, 2], $widget->getStoreIds());
     }
 
-    public function testEmptyWidgetParametersAreAnObject(): void
+    public function testEmptyWidgetParametersAreAnEmptyArray(): void
     {
         $widget = new WidgetInstance();
         $widget->setWidgetParameters([]);
 
-        $this->assertEquals(new \stdClass(), $widget->getWidgetParameters());
+        $this->assertSame([], $widget->getWidgetParameters());
+
+        $widget->setWidgetParameters(null);
+
+        $this->assertSame([], $widget->getWidgetParameters());
     }
 }

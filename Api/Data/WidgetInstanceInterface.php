@@ -110,18 +110,18 @@ interface WidgetInstanceInterface
     public function setSortOrder($sortOrder);
 
     /**
-     * Get the widget's parameters as a free-form object.
+     * Get the widget's parameters, keyed by parameter name.
      *
      * The keys depend on the widget type. UnstructuredArray is the web API's pass-through type:
      * keys survive serialisation.
      *
      * @return UnstructuredArray
-     * @phpstan-return array<string, mixed>|\stdClass
+     * @phpstan-return array<string, mixed>
      */
     public function getWidgetParameters();
 
     /**
-     * Set the widget's parameters as a free-form object.
+     * Set the widget's parameters, keyed by parameter name.
      *
      * @param UnstructuredArray $widgetParameters
      * @phpstan-param array<string, mixed> $widgetParameters

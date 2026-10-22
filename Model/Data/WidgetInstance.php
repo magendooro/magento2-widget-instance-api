@@ -139,15 +139,15 @@ class WidgetInstance extends AbstractSimpleObject implements WidgetInstanceInter
     }
 
     /**
-     * Get the widget's parameters; an empty set is an object on the wire, never a list.
+     * Get the widget's parameters; an empty set is an empty array.
      *
      * @return UnstructuredArray
-     * @phpstan-return array<string, mixed>|\stdClass
+     * @phpstan-return array<string, mixed>
      */
     public function getWidgetParameters()
     {
         $parameters = $this->_get(self::WIDGET_PARAMETERS);
-        return $parameters === null || $parameters === [] ? new \stdClass() : $parameters;
+        return $parameters === null || $parameters === [] ? [] : $parameters;
     }
 
     /**

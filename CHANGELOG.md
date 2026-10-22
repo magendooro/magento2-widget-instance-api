@@ -10,7 +10,7 @@ All notable changes to this module are documented in this file. The format follo
 - REST API for widget instances, all routes guarded by `Magento_Widget::widget_instance`:
   `GET /V1/widgetInstance/search`, `GET /V1/widgetInstance/themes`, `GET /V1/widgetInstance/:instanceId`,
   `POST /V1/widgetInstance` and `PUT /V1/widgetInstance/:instanceId`.
-- `widget_parameters` as a free-form `UnstructuredArray`; an empty set is returned as `{}`.
+- `widget_parameters` as a free-form `UnstructuredArray`; an empty set is returned as `[]`.
 - Input validation in `save()` (`WidgetInstanceValidator`): `instance_type` must be declared in a `widget.xml`,
   `page_group` must be a group Magento's Instance model handles, `page_for` must be `all` or `specific`, `entities`
   digits and commas, `layout_handle` `[a-z0-9_]+`, `block_reference` `[A-Za-z0-9_.-]+`. A rejected request throws

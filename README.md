@@ -156,10 +156,11 @@ not validated by this module.
 
 ## widget_parameters (UnstructuredArray)
 
-`widget_parameters` is a free-form object whose keys depend on the widget type, for example `block_id` for
+`widget_parameters` is a free-form set whose keys depend on the widget type, for example `block_id` for
 `Magento\Cms\Block\Widget\Block`. In the service contract it is declared as the Web API pass-through type
 `UnstructuredArray`, so the keys survive serialisation in both directions. An instance without parameters returns
-`"widget_parameters": {}`, always an object and never a list.
+`"widget_parameters": []`, because Magento cannot emit `{}` for a pass-through type; a non-empty set is returned as
+an object keyed by parameter name. Either `{}` or `[]` is accepted on input.
 
 ## Consumer
 
