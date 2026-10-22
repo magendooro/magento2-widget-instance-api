@@ -112,7 +112,8 @@ interface WidgetInstanceInterface
     /**
      * Get the widget's parameters as a free-form object.
      *
-     * The keys depend on the widget type. UnstructuredArray is the web API's pass-through type: keys survive serialisation.
+     * The keys depend on the widget type. UnstructuredArray is the web API's pass-through type:
+     * keys survive serialisation.
      *
      * @return UnstructuredArray
      * @phpstan-return array<string, mixed>|\stdClass
