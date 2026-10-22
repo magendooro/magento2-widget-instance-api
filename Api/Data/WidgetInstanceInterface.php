@@ -20,11 +20,15 @@ interface WidgetInstanceInterface
     public const PAGE_GROUPS = 'page_groups';
 
     /**
+     * Get the widget instance ID, null while the instance is not saved.
+     *
      * @return int|null
      */
     public function getInstanceId();
 
     /**
+     * Set the widget instance ID.
+     *
      * @param int $instanceId
      * @return $this
      */
@@ -38,50 +42,68 @@ interface WidgetInstanceInterface
     public function getInstanceType();
 
     /**
+     * Set the widget type class.
+     *
      * @param string $instanceType
      * @return $this
      */
     public function setInstanceType($instanceType);
 
     /**
+     * Get the ID of the theme the instance is assigned to.
+     *
      * @return int
      */
     public function getThemeId();
 
     /**
+     * Set the ID of the theme the instance is assigned to.
+     *
      * @param int $themeId
      * @return $this
      */
     public function setThemeId($themeId);
 
     /**
+     * Get the widget instance title.
+     *
      * @return string
      */
     public function getTitle();
 
     /**
+     * Set the widget instance title.
+     *
      * @param string $title
      * @return $this
      */
     public function setTitle($title);
 
     /**
+     * Get the IDs of the store views the instance is shown in.
+     *
      * @return int[]
      */
     public function getStoreIds();
 
     /**
+     * Set the IDs of the store views the instance is shown in.
+     *
      * @param int[] $storeIds
      * @return $this
      */
     public function setStoreIds(array $storeIds);
 
     /**
+     * Get the sort order of the instance.
+     *
      * @return int
      */
     public function getSortOrder();
 
     /**
+     * Set the sort order of the instance.
+     *
      * @param int $sortOrder
      * @return $this
      */
@@ -92,21 +114,29 @@ interface WidgetInstanceInterface
      * UnstructuredArray is the web API's pass-through type: keys survive serialisation.
      *
      * @return UnstructuredArray
+     * @phpstan-return array<string, mixed>|\stdClass
      */
     public function getWidgetParameters();
 
     /**
+     * Set the widget's parameters as a free-form object.
+     *
      * @param UnstructuredArray $widgetParameters
+     * @phpstan-param array<string, mixed> $widgetParameters
      * @return $this
      */
     public function setWidgetParameters($widgetParameters);
 
     /**
+     * Get the placements of the instance.
+     *
      * @return \Magendoo\WidgetInstanceApi\Api\Data\PageGroupInterface[]
      */
     public function getPageGroups();
 
     /**
+     * Set the placements of the instance.
+     *
      * @param \Magendoo\WidgetInstanceApi\Api\Data\PageGroupInterface[] $pageGroups
      * @return $this
      */

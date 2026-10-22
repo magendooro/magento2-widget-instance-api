@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace Magendoo\WidgetInstanceApi\Api;
 
 /**
+ * Lists the themes a widget instance can be assigned to.
+ *
  * @api
  */
 interface ThemeListInterface

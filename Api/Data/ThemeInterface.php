@@ -14,11 +14,15 @@ interface ThemeInterface
     public const CODE = 'code';
 
     /**
+     * Get the theme ID.
+     *
      * @return int
      */
     public function getThemeId();
 
     /**
+     * Set the theme ID.
+     *
      * @param int $themeId
      * @return $this
      */
@@ -32,6 +36,8 @@ interface ThemeInterface
     public function getCode();
 
     /**
+     * Set the theme path.
+     *
      * @param string $code
      * @return $this
      */

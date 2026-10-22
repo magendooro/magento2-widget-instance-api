@@ -8,6 +8,8 @@ use Magendoo\WidgetInstanceApi\Api\Data\WidgetInstanceSearchResultsInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 
 /**
+ * Creates, updates and reads widget instances.
+ *
  * @api
  */
 interface WidgetInstanceRepositoryInterface
@@ -22,6 +24,8 @@ interface WidgetInstanceRepositoryInterface
     public function save(WidgetInstanceInterface $widget);
 
     /**
+     * Get a widget instance by its ID.
+     *
      * @param int $instanceId
      * @return \Magendoo\WidgetInstanceApi\Api\Data\WidgetInstanceInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
@@ -29,6 +33,8 @@ interface WidgetInstanceRepositoryInterface
     public function getById($instanceId);
 
     /**
+     * Get the widget instances that match the search criteria.
+     *
      * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
      * @return \Magendoo\WidgetInstanceApi\Api\Data\WidgetInstanceSearchResultsInterface
      */

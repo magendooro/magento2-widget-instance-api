@@ -6,8 +6,10 @@
     "require": {
         "php": "~8.2.0 || ~8.3.0 || ~8.4.0",
         "magento/framework": "*",
+        "magento/module-catalog": "*",
         "magento/module-widget": "*",
-        "magento/module-theme": "*"
+        "magento/module-theme": "*",
+        "magento/module-webapi": "*"
     },
     "autoload": {
         "files": ["registration.php"],
